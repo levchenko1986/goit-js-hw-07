@@ -27,10 +27,10 @@ console.log(galleryItemElements);
 galleryListEl.insertAdjacentHTML('beforeend', galleryItemElements);
 galleryListEl.addEventListener('click', function(event) {
     event.preventDefault();
+    if (event.target.className !== 'gallery__image') {
+    return;
+    }
     let srcLink = event.target.getAttribute('data-source');
   const instance = basicLightbox.create(`<img src="${srcLink}", width="600" height="500">`);
   instance.show();
 });
-
-console.log(makeItemCard);
-
